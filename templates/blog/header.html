@@ -1,0 +1,68 @@
+{% load staticfiles %}
+<!-- Header -->
+<header id="header">
+    <h1><a href="{%url 'blog:index' %}"> ByMost </a></h1>
+    <nav class="links">
+        <ul>
+            <li><a href="{%url 'blog:index' %}">Home</a></li>
+            <li><a href="#">Category</a></li>
+            <li><a href="{%url 'blog:about_me' %}">About</a></li>
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="#">
+                    <input type="text" name="query" placeholder="Search" />
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- Menu -->
+<section id="menu">
+
+    <!-- Search -->
+        <section>
+            <form class="search" method="get" action="#">
+                <input type="text" name="query" placeholder="Search" />
+            </form>
+        </section>
+
+    <!-- Links -->
+        <section>
+            <ul class="links">
+                <li>
+                    <a href="{%url 'blog:index' %}">
+                        <h3>Home</h3>
+                        <p>Welcome</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <h3>Category</h3>
+                        <p>All Category</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="{%url 'blog:about_me' %}">
+                        <h3>About</h3>
+                        <p>About me</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+
+    <!-- Actions -->
+        <section>
+            <ul class="actions vertical">
+                <li><a href="#" class="button big fit">Log In</a></li>
+            </ul>
+        </section>
+
+</section>

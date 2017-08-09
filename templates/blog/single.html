@@ -1,0 +1,67 @@
+{%load staticfiles %}
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{{post.title }} | Bymost</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'blog/assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+	</head>
+	<body class="single">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				{% include 'blog/header.html' %}
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
+										<p>{{post.excerpt}}</p>
+									</div>
+									<div class="meta">
+										<time class="published" datetime="{{ post.created_time }}">{{ post.created_time }}</time>
+										<a href="#" class="author"><span class="name">{{ post.author }}</span><img src="{% static 'blog/images/avatar.jpg' %}" alt="" /></a>
+									</div>
+								</header>
+								<span class="image featured"><img src="{% static 'blog/images/pic01.jpg' %}" alt="" /></span>
+								<p>
+									{{ post.body | safe }}
+								</p>
+								<footer>
+									<ul class="stats">
+										<li><a href="#">{{post.category}}</a></li>
+										<li><a href="#" class="icon fa-heart">28</a></li>
+										<li><a href="#" class="icon fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+
+					</div>
+
+				{% include 'blog/footer.html' %}
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'blog/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'blog/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'blog/assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'blog/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

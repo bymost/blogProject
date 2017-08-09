@@ -1,0 +1,109 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<!--
+	Future Imperfect by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>{{title}} | {{description}}</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--[if lte IE 8]><script src="{% static 'blog/assets/js/ie/html5shiv.js' %}"></script><![endif]-->
+		<link rel="stylesheet" href="{% static 'blog/assets/css/main.css' %}" />
+		<!--[if lte IE 9]><link rel="stylesheet" href="{% static 'blog/assets/css/ie9.css' %}" /><![endif]-->
+		<!--[if lte IE 8]><link rel="stylesheet" href="{% static 'blog/assets/css/ie8.css' %}" /><![endif]-->
+	</head>
+	<body>
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				{% include "blog/header.html"%}
+
+				<!-- Main -->
+					<div id="main">
+						{% for post in post_list %}
+							<!-- Post -->
+							<article class="post">
+								<header>
+									<div class="title">
+										<h2><a href="{%url 'blog:detail' title=post.title category=post.category.name %}">{{post.title}}</a></h2>
+										 <!-- <p> -->
+											 {{post.excerpt}}
+											<!-- </p>  -->
+									</div>
+									<div class="meta">
+										<time class="published" datetime="{{ post.created_time }}">{{ post.created_time}}</time>
+										<a href="{%url 'blog:about_me' %}" class="author"><span class="name">{{ post.author }}</span><img src="{% static 'blog/images/avatar.jpg' %}" alt="{{ post.author }}" /></a>
+									</div>
+								</header>
+								<!-- <a href="#" class="image featured"><img src="{% static 'blog/images/pic01.jpg' %}" alt="" /></a> -->
+								  <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>  
+								 <!-- {{ post.body | safe}} -->
+								<footer>
+									<ul class="actions">
+										<li><a href="{{ post.get_absolute_url }}" class="button">Continue Reading</a></li>
+									</ul>
+									<ul class="stats">
+										<li><a href="">{{ post.category }}</a></li>
+										<li><a href="" class="icon fa-heart">28</a></li>
+										<li><a href="" class="icon fa-comment">128</a></li>
+									</ul>
+								</footer>
+							</article>
+						{% endfor %}
+
+						<!-- Pagination -->
+							<ul class="actions pagination">
+								<li><a href="" class="disabled button previous">Previous Page</a></li>
+								<li><a href="#" class="button next">Next Page</a></li>
+							</ul>
+
+					</div>
+
+				<!-- Sidebar -->
+					<section id="sidebar">
+
+						<!-- Intro -->
+							<section id="intro">
+								<a href="{%url 'blog:index' %}" class="logo"><img src="{% static 'blog/images/logo.jpg' %}" alt="" /></a>
+								<header>
+									<h2>Bymost</h2>
+									<p>Beyond The Most</p>
+									<ul class="icons">
+										<li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+										<li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+										<li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+										<li><a href="#" class="fa-rss"><span class="label">RSS</span></a></li>
+										<li><a href="#" class="fa-envelope"><span class="label">Email</span></a></li>
+									</ul>
+								</header>
+							</section>
+
+						<!-- About -->
+							<section class="blurb">
+								<h2>About Me</h2>
+								<p>iOS Developer, Python, Machine_learning</p>
+								<ul class="actions">
+									<li><a href="{%url 'blog:about_me'%}" class="button">Learn More</a></li>
+								</ul>
+							</section>
+					</section>
+
+			</div>
+			<div align = "center">
+				<section id="footer">
+					<p class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.by<a href="{%url 'blog:index'%}">多多</a></p>
+				</section>
+			</div>
+		<!-- Scripts -->
+			<script src="{% static 'blog/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'blog/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'blog/assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'blog/assets/js/main.js' %}"></script>
+
+	</body>
+</html>
