@@ -44,3 +44,4 @@ class Post(models.Model):
         return reverse('blog:detail', kwargs = {'category' : self.category.name,
                                                 'title' : self.title
                                                 })
+        
