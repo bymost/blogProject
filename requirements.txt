@@ -1,0 +1,7 @@
+django==1.11.3
+Markdown
+Pygments
+pytz
+django-haystack
+jieba
+Whoosh
